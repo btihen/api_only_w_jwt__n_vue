@@ -1,0 +1,16 @@
+/* recordstore-frontend/src/main.css */
+@tailwind preflight;
+
+@tailwind components;
+
+// put specialized stuff before utilities
+.btn-blue {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+.btn-blue:hover {
+  @apply bg-blue-700;
+}
+
+@tailwind utilities;
+
+@tailwind base;
