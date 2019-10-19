@@ -16,16 +16,15 @@ ActiveRecord::Schema.define(version: 2019_10_19_153512) do
   enable_extension "plpgsql"
 
   create_table "artists", force: :cascade do |t|
-    t.string "name"
-    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_artists_on_user_id"
   end
 
   create_table "records", force: :cascade do |t|
-    t.string "title"
-    t.string "year"
+    t.string "title", null: false
+    t.string "year", null: false
     t.bigint "artist_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -41,7 +40,6 @@ ActiveRecord::Schema.define(version: 2019_10_19_153512) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "artists", "users"
   add_foreign_key "records", "artists"
   add_foreign_key "records", "users"
 end
